@@ -1,4 +1,5 @@
-
+module Tests
+  
 class Algoritmos
   
   def bubbleSort(a=[])
@@ -27,19 +28,31 @@ class Algoritmos
       return 1
     end
     pivot = a[left]
-    
-    while left < right do
-      
+    pivot_ref=0
+    while left <= right do
+   
+      if pivot_ref==0
         if pivot > a[right]
-        temp =a[right]
+        temp = a[right]
         a[right]= pivot
         a[left]=temp
         left+=1
-        pivot=a[left]
         pivot_ref=1
         else
           right-=1
-        end  
+        end
+      end
+      if pivot_ref==1
+       if pivot < a[left]
+        temp = a[left]
+        a[left]= pivot
+        a[right]=temp
+        right-=1
+        pivot_ref=0
+        else
+          left+=1
+        end       
+      end
     end
     if left!=0
       quickSort(a,0,left)
@@ -56,7 +69,7 @@ class Algoritmos
   
   
 end
-
-arr=[13,6,4,2,3,11,7,2,6]
-Algoritmos.new.quickSort(arr,0,arr.size-1)
-print arr
+end
+#arr=[13,6,4,2,3,11,7,2,6]
+#Tests::Algoritmos.new.quickSort(arr,0,arr.size-1)
+#print arr

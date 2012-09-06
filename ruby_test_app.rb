@@ -1,28 +1,11 @@
- 
-class Hello
-  
-  
-  def doHello()  
-    print "Esta es la primera prueba Ruby: \n"  
-  end  
-  
-  def sortTest (unsort)
-      i = 0
-      while unsort<10 do
-         i = i+1
-         unsort= unsort+1
-         print i
-      end
-    
-    end
 
-  def randN()
-     Float a = rand()*10
-    return a
-  end
+require './Algoritmos.rb'
 
-end
-ar =[5,1,2,9,7,8,11,10]
-clase = Hello.new;
-clase.doHello;
-print clase.randN
+sorter = Tests::Algoritmos.new
+
+
+arraySample = [65,234,97,763,4,435,45,23,24,234,534,3,2,12,5,2,57,7]
+  
+  sorter.quickSort(arraySample,0,arraySample.size-1)
+  
+  print arraySample
